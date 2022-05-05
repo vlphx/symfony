@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <h1>{{title|striptags|upper}}</h1>
+        {{"Test: %d "|format(80)}}
+        <table style="border:1px solid black">
+        <tr>
+        <td>Date: {{date}}</td>
+        </tr>
+        <tr>
+        <td>Heure: {{heure}}</td>
+        </tr>
+        </table>
+        <br/>
+        {% set myVariable = "ma" ~ "valeur" %}
+        {# commentaire #}
+        {% set liste = [1,2,3,4,5] %}
+        liste length :{{liste|length}} | 
+        myVariable :{{myVariable}}
+        <table>
+        {% for element in liste%}
+    
+            <tr>
+        <td>n° {{element}}</td>
+        </tr>
+        {% endfor%}
+        </table>
+    </body>
+</html>

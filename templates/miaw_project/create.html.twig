@@ -1,0 +1,21 @@
+<html>
+<body>
+{% if roue is defined %}
+{{dump(roue)}}
+{{roue.diametre}}
+
+
+{%elseif chassis is defined %}
+Dimensions : {{chassis.longueur}} x {{chassis.largeur}} cm
+
+
+{% elseif moteur is defined %}
+Puissance : {{moteur.puissance}}
+Energie : {{moteur.energie}}
+
+
+{% elseif couleur is defined %}
+Couleur : {{couleur.nomCouleur}}
+{% endif %}
+</body>
+</html>
