@@ -35,7 +35,7 @@ class Vehicule
     private $clients;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Roue::class,inversedBy='vehicules', cascade=('persist'))
+     * @ORM\ManyToMany(targetEntity=Roue::class,inversedBy="vehicules", cascade={"persist"})
      */
     private $Roues;
 
@@ -45,7 +45,7 @@ class Vehicule
     private $Couleur;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Moteur::class, inversedBy="vehicules")
+     * @ORM\ManyToOne(targetEntity=Moteur::class, inversedBy="vehicules", cascade={"persist"})
      */
     private $Moteur;
 

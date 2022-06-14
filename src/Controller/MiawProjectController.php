@@ -218,4 +218,43 @@ class MiawProjectController extends AbstractController
         return $this->render('miaw_project/create.html.twig', ['couleur' => $monCouleur
         ]);
     }
+
+    /**
+     * @Route("/roues/list", name="list_roues")
+     */
+    public function listRoues()
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $roues = $entityManager->getRepository(Roue::class)->findAll();
+
+        return $this->render('miaw_project/list-roues.html.twig', ['roues' => $roues
+        ]);
+    }
+
+    /**
+     * @Route("/roues/show/{uid}", name="show_roue")
+     */
+    public function showRoue($uid)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $roue = $entityManager->getRepository(Roue::class)->find($uid);
+
+        return $this->render('miaw_project/show-roue.html.twig', ['roue' => $roue
+        ]);
+    }
+
+    /**
+     * @Route("/vehicules/list", name="list_vehicules")
+     */
+    public function listVehicules()
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $vehicules = $entityManager->getRepository(Vehicule::class)->findAll();
+
+        return $this->render('miaw_project/list-vehicules.html.twig', ['vehicules' => $vehicules
+        ]);
+    }
 }
