@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+    {% block body %}    
+
+    <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h2 class="card-title">{{livre.titre}}</h2>
+    {# <h6 class="card-subtitle mb-2 text-muted">Détails du livre</h6> #}
+    <a href="/auteur/show/{{livre.auteur.id}}">Auteur : {{livre.auteur.nom}}</a>
+     <p class="card-text">Date de publication : {{livre.dateDePublication | date("d/m/Y")}}</p>
+     <p class="card-text">Résumé: {{livre.resume}}</p>
+     <p class="card-text">Référence : {{livre.reference}}</p>
+
+  </div>
+</div>
+    
+
+    {% endblock %} 

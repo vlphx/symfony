@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+    {% block body %}
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" href="/livres/liste">Tous les livres</a>
+  </li>
+
+
+</ul>
+    <table class="table">
+    <thead class="black white-text">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Catégorie</th>
+            <th scope="col">Date de publication</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for i,livre in livres %}
+            <tr>
+            <th scope="col">{{i}}</th>
+            <th scope="col"><a  href="/livre/show/{{livre.id}}">{{livre.titre}}</a></th>
+            <th scope="col">{{livre.categorie}}</th>
+            <th scope="col">{{livre.dateDePublication | date("d/m/Y")}}</th>
+            <th scope="col"></th>
+        </tr>
+            {# {% for roue in vehicule.roues %}
+                <a class="list-group-item" href="/roues/show/{{roue.id}}"> <li>Id : {{ roue.id }} -> Diametre : {{ roue.diametre }}</li></a>
+            {% endfor %} #}
+          </ul>
+    {% endfor %}
+    </tbody>
+</table>
+
+    {% endblock %} 

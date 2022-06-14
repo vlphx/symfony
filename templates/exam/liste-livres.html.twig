@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+
+    {% block body %}
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" href="/livres/liste">Tous les livres</a>
+  </li>
+{% set nouveauListe = [] %}
+
+{% for livre in livres %}
+   {% if livre.categorie not in nouveauListe %}
+    <li class="nav-item">
+    <a class="nav-link active" href="/livres/liste/{{livre.categorie}}">{{livre.categorie}}</a>
+    </li>
+   {% set nouveauListe = nouveauListe|merge([livre.categorie]) %}
+   {% endif %}
+
+{% endfor %}
+
+</ul>
+    <table class="table">
+    <thead class="black white-text">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Catégorie</th>
+            <th scope="col">Date de publication</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for i,livre in livres %}
+            <tr>
+            <th scope="col">{{i}}</th>
+            <th scope="col"><a  href="/livre/show/{{livre.id}}">{{livre.titre}}</a></th>
+            <th scope="col">{{livre.categorie}}</th>
+            <th scope="col">{{livre.dateDePublication | date("d/m/Y")}}</th>
+            <th scope="col"></th>
+        </tr>
+          </ul>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" href="/new_livre">Ajouter un livre</a>
+  </li>
+</ul>
+    {% endblock %} 

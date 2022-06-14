@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+
+    {% block body %}
+
+    <table class="table">
+    <thead class="black white-text">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for i,vehicule in vehicules %}
+        {% for moteur in vehicule.moteur %}
+            <tr>
+                <th scope="row">{{i}}</th>
+                <td>{{ vehicule.model | upper}}</td>
+                <td>{{moteur.energie}}</td>
+                <td>{{moteur.puissance}}</td>
+                <td>{{ vehicule.chassis.largeur}} x {{vehicule.chassis.longueur}}</td>
+        {% endfor %}
+          <li>Id : {{ vehicule.id }} -> Modele : {{ vehicule.modele }}</li>
+          <ul>
+          
+            {% for roue in vehicule.roues %}
+                <a class="list-group-item" href="/roues/show/{{roue.id}}"> <li>Id : {{ roue.id }} -> Diametre : {{ roue.diametre }}</li></a>
+            {% endfor %}
+          </ul>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+    {# <h1>Vehicules</h1>
+    <ul class="list-group">
+    {% for vehicule in vehicules %}
+          <li>Id : {{ vehicule.id }} -> Modele : {{ vehicule.modele }}</li>
+          <ul>
+          
+            {% for roue in vehicule.roues %}
+                <a class="list-group-item" href="/roues/show/{{roue.id}}"> <li>Id : {{ roue.id }} -> Diametre : {{ roue.diametre }}</li></a>
+            {% endfor %}
+          </ul>
+    {% endfor %}
+    </ul> #}
+    {% endblock %} 

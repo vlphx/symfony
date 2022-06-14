@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+    {% block body %}
+    <h1>Roues</h1>
+    <ul class="list-group">
+    {% for roue in roues %}
+         <a class="list-group-item" href="/roues/show/{{roue.id}}"> <li>Id : {{ roue.id }} -> Diametre : {{ roue.diametre }}</li></a>
+    {% endfor %}
+    </ul>
+    {% endblock %} 

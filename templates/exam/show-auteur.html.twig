@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+    {% block body %}    
+
+    <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h2 class="card-title">{{auteur.nom}}</h2>
+     <p class="card-text">Prénom : {{auteur.prenom }}</p>
+     <p class="card-text">Biographie: {{auteur.biographie}}</p>
+     <a href="/livres/liste" class="card-link">Accéder à la page contenant tous les livres</a>
+
+  </div>
+</div>
+    
+
+    {% endblock %} 
